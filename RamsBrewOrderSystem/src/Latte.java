@@ -13,7 +13,8 @@ public class Latte implements Beverage {
 
     @Override
     public String getInfo() {
-        return "Your Latte is a " + size + " with" + shots + " shot(s) and " + milk + " milk, and " +  sweetener;
+        return "Your Latte is a " + size + " with " + shots + " shot(s) and "
+                + milk + " milk, and " + sweetener;
     }
 
     @Override
