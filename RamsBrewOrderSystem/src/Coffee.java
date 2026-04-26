@@ -7,27 +7,26 @@ public class Coffee implements beverage{
         this.size = size;
         this.milk = milk;
         this.sweetener = sweetener;
+        this.shots = shots;
     }
 
     @Override
     public String getInfo(){
-        return size + "Your coffee contains: " + milk + " milk and " + sweetener;;
+        return "Your Coffee is a " + size + "with " + shots + " shot(s) and " + milk + " milk, and " + sweetener;
     }
 
     @Override
     public double getCost() {
+        double base;
+
         if (size.equalsIgnoreCase("Small")) {
-            return 2.00;
+            base = 2.00;
         } else if (size.equalsIgnoreCase("Medium")) {
-            return 2.50;
+            base = 2.50;
         } else {
-            return 3.00; // large
+            base = 3.00;
         }
+        base += shots * 0.50; // shot cost
+        return base;
     }
-
-
-
-
-
-
 }
