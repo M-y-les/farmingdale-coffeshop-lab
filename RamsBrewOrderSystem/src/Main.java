@@ -1,25 +1,37 @@
 public class Main {
     public static void main(String[] args) {
-        System.out.println("===== Ram's Brew - Commit 2: Factory Demo =====");
-        System.out.println();
+        System.out.println("Rams Brew Factory Demo");
 
-        Beverage coffee = BeverageFactory.createBeverage(
+        Order order1 = new Order("Myles Freelin", Order.ServiceType.DINE_IN);
+
+        Beverage hotCoffee = BeverageFactory.createBeverage(
                 "coffee", "Large", "Whole", "Sugar", 1, false);
 
-        Beverage latte = BeverageFactory.createBeverage(
-                "latte", "Medium", "Oat", "Honey", 2, true);
-
-        Beverage cappuccino = BeverageFactory.createBeverage(
-                "cappuccino", "Small", "Almond", "None", 2, false);
-
-        Beverage tea = BeverageFactory.createBeverage(
+        Beverage icedTea = BeverageFactory.createBeverage(
                 "tea", "Medium", null, "Honey", 0, true);
 
-        Beverage[] menu = { coffee, latte, cappuccino, tea };
-        for (Beverage b : menu) {
-            System.out.println(b.getInfo());
-            System.out.println("  Cost: $" + b.getCost());
-            System.out.println();
-        }
+        order1.addBeverage(hotCoffee);
+        order1.addBeverage(icedTea);
+        order1.printReceipt();
+
+        Order order2 = new Order("Aidan Smith", Order.ServiceType.TAKE_OUT);
+
+        Beverage icedLatte = BeverageFactory.createBeverage(
+                "latte", "Large", "Oat", "Stevia", 2, true);
+
+        order2.addBeverage(icedLatte);
+        order2.printReceipt();
+
+        Order order3 = new Order("Jack Mullins", Order.ServiceType.DELIVERY);
+
+        Beverage cappuccino = BeverageFactory.createBeverage(
+                "cappuccino", "Medium", "Almond", "None", 3, false);
+
+        Beverage smallCoffee = BeverageFactory.createBeverage(
+                "coffee", "Small", "Whole", "None", 1, false);
+
+        order3.addBeverage(cappuccino);
+        order3.addBeverage(smallCoffee);
+        order3.printReceipt();
         }
 }

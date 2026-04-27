@@ -13,7 +13,7 @@ public class Coffee implements Beverage{
 
     @Override
     public String getInfo(){
-        return "Your Coffee is a " + size + "with " + shots + " shot(s) and " + milk + " milk, and " + sweetener;
+        return "Your Coffee is a " + size + " with " + shots + " shot(s) and " + milk + " milk, and " + sweetener;
     }
 
     @Override
